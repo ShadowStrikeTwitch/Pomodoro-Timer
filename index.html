@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./src/index.js" defer></script>
+    <title>Pomodoro Timer</title>
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-purple-600 via-pink-500 to-red-500 text-white flex flex-col">
+
+<!-- HEADER -->
+<header class="py-5 backdrop-blur bg-white/10 shadow-md">
+    <h1 class="text-center text-4xl font-bold tracking-wide drop-shadow">
+        Pomodoro Timer
+    </h1>
+</header>
+
+<!-- MAIN -->
+<main class="flex-grow flex justify-center items-center px-6">
+    <div id="app"
+         class="backdrop-blur-xl bg-white/10 p-10 rounded-3xl shadow-2xl w-full max-w-xl border border-white/20">
+
+        <!-- Timer Display -->
+        <div class="flex justify-center items-center">
+            <p id="timer_element" class="text-7xl sm:text-8xl font-mono drop-shadow-lg">25</p>
+        </div>
+
+        <!-- Controls -->
+        <div id="controls" class="flex flex-wrap justify-center gap-6 mt-8">
+            <button onclick="startTimer()"
+                    class="px-6 py-3 bg-green-500 rounded-full text-xl font-semibold hover:bg-green-600 active:scale-95 transition">
+                Start
+            </button>
+
+            <button onclick="pauseTimer()"
+                    class="px-6 py-3 bg-yellow-500 rounded-full text-xl font-semibold hover:bg-yellow-600 active:scale-95 transition">
+                Pause
+            </button>
+
+            <button onclick="resetTimer()"
+                    class="px-6 py-3 bg-blue-500 rounded-full text-xl font-semibold hover:bg-blue-600 active:scale-95 transition">
+                Reset
+            </button>
+
+            <button onclick="switchTimer()"
+                    class="px-6 py-3 bg-purple-500 rounded-full text-xl font-semibold hover:bg-purple-600 active:scale-95 transition">
+                Switch
+            </button>
+        </div>
+        <div class="flex items-center mt-6">
+            <label for="autoplay" class="text-lg font-medium mr-4">Autoplay:</label>
+            <div class="flex items-center gap-4">
+                <!-- Toggle -->
+                <label class="relative inline-flex items-center cursor-pointer mr-32">
+                    <input type="checkbox" id="autoplay" class="sr-only peer">
+                    <div class="w-11 h-6 bg-white/20 rounded-full peer-checked:bg-pink-500 transition"></div>
+                    <div class="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full
+                        transition-transform peer-checked:translate-x-5 shadow"></div>
+                </label>
+
+                <!-- Mode Anzeige -->
+                <label class="text-lg font-medium">Current mode:</label>
+                <span id="current_mode" class="text-lg font-semibold text-white/90">Work</span>
+            </div>
+        </div>
+
+        <!-- Inputs -->
+        <div id="inputs" class="mt-10 space-y-4">
+            <label class="block text-lg font-medium">
+                Work time:
+                <input type="number" id="timer_input" min="1" value="25"
+                       class="ml-2 w-20 px-2 py-1 text-black rounded-lg outline-none focus:ring-2 focus:ring-pink-400">
+                min
+            </label>
+
+            <label class="block text-lg font-medium">
+                Break time:
+                <input type="number" id="break_input" min="1" value="5"
+                       class="ml-2 w-20 px-2 py-1 text-black rounded-lg outline-none focus:ring-2 focus:ring-purple-400">
+                min
+            </label>
+        </div>
+
+    </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="py-4 backdrop-blur bg-white/10 text-center text-sm mt-10 border-t border-white/10">
+    <p>Made with ❤️ by Leon</p>
+</footer>
+
+</body>
+</html>
